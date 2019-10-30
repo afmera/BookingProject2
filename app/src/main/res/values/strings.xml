@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">BookingProject</string>
+    <string name="verificar_por_correo">Verificar por Correo</string>
+    <string name="verificar_por_google">Verificar por Google</string>
+    <string name="verificar_por_phone_number">Verificar por Phone Number</string>
+    <string name="salir">Salir</string>
+    <string name="main_menu">Menu Principal</string>
+    <string name="titulo_email">Verificar por Correo</string>
+    <string name="titulo_google">Verificar por Google</string>
+    <string name="titulo_phone">Verificar por Numero de Telefono</string>
+    <string name="bienvenido_inicio_por_correo">Bienvenido Inicio por Correo</string>
+    <string name="bienvenido_inicio_por_google">Bienvenido Inicio por Google</string>
+    <string name="bienvenido_inicio_por_phone">Bienvenido Inicio por Phone Number</string>
+    <string name="panel_email">Panel del Inicio por Correo</string>
+    <string name="sign_out_button">Sign Out</string>
+    <string name="panel_correo">Bienvenidos al Panel de Correo</string>
+    <string name="panel_google">Bienvenidos al Panel de Google</string>
+    <string name="write_phone_number_here">Write phone number here</string>
+    <string name="write_verification_code_here">Write verification code here</string>
+    <string name="send_verification_code">Send Verification Code</string>
+    <string name="verify">Verify</string>
+    <string name="bienvenido_por_verficacion_de_telefono">Bienvenido por Verficacion de Telefono</string>
+    <string name="title_activity_menu__principal_">Menu_Principal_Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+</resources>
