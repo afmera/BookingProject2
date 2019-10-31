@@ -5,10 +5,6 @@ import com.example.bookingproject.model.Persona;
 public class Vector {
     private Persona[] persona;
 
-    public Vector() {
-        this.persona=new Persona[1];
-    }
-
     public Persona[] getPersona() {
         return persona;
     }
@@ -17,8 +13,28 @@ public class Vector {
         this.persona = persona;
     }
 
-    public void crear(Persona p)
-    {
-        persona[0]=p;
+    /**
+     * Metodo para generar espacion en memoria al vector de tipo persona.
+     */
+    public void crearPersona() {
+        this.persona = new Persona[1];
+    }
+
+    /**
+     * Metodo para agregar el tipo persona al vector.
+     *
+     * @param persona
+     */
+    public void agregarPersona(Persona persona) {
+        this.persona[0] = persona;
+    }
+
+    /**
+     * Metodo para obtener el nombre del usuario.
+     *
+     * @return de tipo String.
+     */
+    public String getNombrePersona() {
+        return this.persona[0].getNombreCompleto();
     }
 }

@@ -2,6 +2,9 @@ package com.example.bookingproject;
 
 import android.os.Bundle;
 
+import com.example.bookingproject.model.Persona;
+import com.example.bookingproject.utils.Utils;
+import com.example.bookingproject.vector.Vector;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -20,15 +23,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.TextView;
+
+import java.util.List;
 
 public class Menu_Principal_Activity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    TextView textView_NombUsuario;
+    TextView textView_CorroeUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu__principal_);
+
+        agregarDatos();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -51,6 +62,17 @@ public class Menu_Principal_Activity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+    }
+
+    private void agregarDatos() {
+        textView_NombUsuario = (TextView) findViewById(R.id.NombreUsuarioTextView);
+        Persona PersonaMain = Utils.personaSesison;
+        String nombUsua = PersonaMain.getNombreCompleto();
+        if (nombUsua.length() > 0) {
+            textView_NombUsuario.setText(nombUsua);
+        } else {
+            textView_NombUsuario.setText("Desconocido");
+        }
     }
 
     @Override

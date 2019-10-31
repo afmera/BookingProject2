@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookingproject.model.Persona;
+import com.example.bookingproject.utils.Utils;
 import com.example.bookingproject.vector.Vector;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -42,6 +43,8 @@ public class Google_Activity extends AppCompatActivity implements GoogleApiClien
     //variable finales para la configuracion del layput y conexion de Google
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
+
+    public static Persona persona;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,24 +116,13 @@ public class Google_Activity extends AppCompatActivity implements GoogleApiClien
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             //trasfiero los datos de la cuenta ge google al objeto de GoogleSignInAccount
-            GoogleSignInAccount acct = result.getSignInAccount();
+            final GoogleSignInAccount acct = result.getSignInAccount();
             //Ademas de obtener los datos de la cuente de Goolge.
             statusTextView.setText("Hello, " + acct.getDisplayName());//Muestro los datos
             email = acct.getEmail();//paso los datos a las variable globales.
             password = acct.getId();
 
-            Persona persona=new Persona(
-                    acct.getDisplayName(),
-                    acct.getEmail(),
-                    acct.getFamilyName(),
-                    acct.getGivenName(),
-                    acct.getId(),
-                    acct.getIdToken(),
-                    acct.getServerAuthCode(),
-                    acct.zab(),
-                    acct.zac());
-            Vector entity=new Vector();
-            entity.crear(persona);
+
             //Ago una lista de una clase determinada para pasar los datos obtenidos.
             /*Lista.lista_persona.add(new Persona(
                     acct.getDisplayName(),
@@ -150,8 +142,9 @@ public class Google_Activity extends AppCompatActivity implements GoogleApiClien
                             //verifico la respueta si exite la cuenta de google
                             if (task.isSuccessful()) {//si pasa inicio sesion
                                 //startActivity(new Intent(getApplicationContext(), Google_PanelActivity.class));
-                                startActivity(new Intent(getApplicationContext(), Menu_Principal_Activity.class));
                                 Toast.makeText(Google_Activity.this, "Inicio de Sesion", Toast.LENGTH_SHORT).show();
+                                llenarVector(acct);
+                                startActivity(new Intent(getApplicationContext(), Menu_Principal_Activity.class));
                             } else {//si no
                                 //Creo una cuenta
                                 firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -159,9 +152,9 @@ public class Google_Activity extends AppCompatActivity implements GoogleApiClien
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 if (task.isSuccessful()) {
-                                                    //startActivity(new Intent(getApplicationContext(), Google_PanelActivity.class));
-                                                    startActivity(new Intent(getApplicationContext(), Menu_Principal_Activity.class));
                                                     Toast.makeText(Google_Activity.this, "Registrations Complete", Toast.LENGTH_SHORT).show();
+                                                    startActivity(new Intent(getApplicationContext(), Menu_Principal_Activity.class));
+                                                    llenarVector(acct);
                                                 } else {
                                                     Toast.makeText(Google_Activity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
                                                 }
@@ -174,6 +167,22 @@ public class Google_Activity extends AppCompatActivity implements GoogleApiClien
 
         }
     }
+
+    private void llenarVector(GoogleSignInAccount acct) {
+        Persona persona = new Persona(
+                acct.getDisplayName(),
+                acct.getEmail(),
+                acct.getFamilyName(),
+                acct.getGivenName(),
+                acct.getId(),
+                acct.getIdToken(),
+                acct.getServerAuthCode(),
+                acct.zab(),
+                acct.zac());
+        Utils.personaSesison = (persona);
+    }
+
+
     //Metodo para emitir los errores
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
