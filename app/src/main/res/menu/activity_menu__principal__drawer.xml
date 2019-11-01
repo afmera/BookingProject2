@@ -6,15 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
+            android:icon="@drawable/ic_map_black_24dp"
             android:title="Mapas" />
         <item
             android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_add_to_queue_black_24dp"
             android:title="Generar Codigo QR" />
         <item
             android:id="@+id/nav_LeerQR"
+            android:icon="@drawable/ic_add_to_queue_black_24dp"
             android:title="Leer Codigo QR" />
         <item
             android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_attach_money_black_24dp"
             android:title="Google Pay" />
     </group>
 
