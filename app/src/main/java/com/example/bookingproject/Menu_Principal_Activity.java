@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import com.example.bookingproject.model.Persona;
 import com.example.bookingproject.utils.Utils;
-import com.example.bookingproject.vector.Vector;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -24,8 +23,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.widget.TextView;
-
-import java.util.List;
 
 public class Menu_Principal_Activity extends AppCompatActivity {
 
@@ -65,14 +62,14 @@ public class Menu_Principal_Activity extends AppCompatActivity {
     }
 
     private void agregarDatos() {
-        textView_NombUsuario = (TextView) findViewById(R.id.NombreUsuarioTextView);
+        /*textView_NombUsuario = (TextView) findViewById(R.id.NombreUsuarioTextView);
         Persona PersonaMain = Utils.personaSesison;
         String nombUsua = PersonaMain.getNombreCompleto();
         if (nombUsua.length() > 0) {
             textView_NombUsuario.setText(nombUsua);
         } else {
             textView_NombUsuario.setText("Desconocido");
-        }
+        }*/
     }
 
     @Override
